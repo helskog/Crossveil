@@ -14,7 +14,9 @@ namespace Crossveil.Core;
 [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
 public class Plugin : BasePlugin
 {
+	//
 	private static Harmony _harmony;
+
 	public static ManualLogSource Log { get; private set; }
 
 	public static CollectionRegistry Collections { get; set; }
