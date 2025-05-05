@@ -17,7 +17,7 @@ public static class CollectionImport
 
 		foreach (var res in asm.GetManifestResourceNames())
 		{
-			if (!res.StartsWith("Crossveil.Crosshairs.") || !res.EndsWith(".png"))
+			if (!res.StartsWith("Crossveil.Embedded.") || !res.EndsWith(".png"))
 				continue;
 
 			using var stream = asm.GetManifestResourceStream(res);
@@ -35,7 +35,7 @@ public static class CollectionImport
 			// Create a new Texture2D from byte array
 			var tex = TextureUtils.FromByteArray(bytes);
 
-			tex.name = res.Replace("Crossveil.Crosshairs.", "").Replace(".png", "");
+			tex.name = res.Replace("Crossveil.Embedded.", "").Replace(".png", "");
 			tex.hideFlags |= HideFlags.DontUnloadUnusedAsset;
 
 			Plugin.Collections.Add(tex, "Standard");

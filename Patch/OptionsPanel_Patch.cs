@@ -17,7 +17,7 @@ internal static class Patch_OptionsPanel_Interface
 	{
 		var _mainHeader = new CustomHeader()
 			.Panel(__instance)
-			.Label($"Crosshair Changer {MyPluginInfo.PLUGIN_VERSION}")
+			.Label($"Crossveil {MyPluginInfo.PLUGIN_VERSION}")
 			.Build();
 
 		var _enableModToggle = new CustomToggle()
