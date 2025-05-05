@@ -19,7 +19,7 @@ outdir = "./build"
 
 [[build.copy]]
 source = "./bin/Release/net6.0/Crossveil.dll"
-target = "./XPRising.dll"
+target = "./Crossveil.dll"
 
 [[build.copy]]
 source = "../CHANGELOG.md"
