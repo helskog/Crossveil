@@ -44,7 +44,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: thunderstore packages
-          path: ./Crossveil/build/Crossveil-Thunderstore-${{ env.GitVersion_MajorMinorPatch }}.zip
+          path: ./build/Crossveil-Thunderstore-${{ env.GitVersion_MajorMinorPatch }}.zip
 
           retention-days: 1
           compression-level: 0    
@@ -58,4 +58,4 @@ jobs:
           fail_on_unmatched_files: true
           prerelease: true
           tag_name: v${{ env.GitVersion_MajorMinorPatch }}
-          files: ./Crossveil/build/Crossveil-Thunderstore-${{ env.GitVersion_MajorMinorPatch }}.zip
+          files: ./build/Crossveil-Thunderstore-${{ env.GitVersion_MajorMinorPatch }}.zip
