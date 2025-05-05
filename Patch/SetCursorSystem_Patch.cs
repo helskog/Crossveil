@@ -1,11 +1,11 @@
-﻿using CrossVeil.Crosshair;
+﻿using Crossveil.Crosshair;
 
 using ProjectM;
 using ProjectM.UI;
 
 using HarmonyLib;
 
-namespace CrossVeil.Patches;
+namespace Crossveil.Patches;
 
 [HarmonyPatch(typeof(SetCursorSystem), nameof(SetCursorSystem.OnUpdate))]
 internal static class Patch_SetCursorSystem_OnUpdate

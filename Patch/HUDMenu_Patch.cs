@@ -1,10 +1,10 @@
-﻿using CrossVeil.Core;
+﻿using Crossveil.Core;
 
 using HarmonyLib;
 
 using ProjectM.UI;
 
-namespace CrossVeil.Patch;
+namespace Crossveil.Patch;
 
 // Credit where its due to original ModernCamera mod for the patches.
 

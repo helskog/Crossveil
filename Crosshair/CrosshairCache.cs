@@ -1,11 +1,11 @@
-﻿using CrossVeil.Core;
-using CrossVeil.Utils;
+﻿using Crossveil.Core;
+using Crossveil.Utils;
 
 using ProjectM;
 using UnityEngine;
 using System.Collections.Generic;
 
-namespace CrossVeil.Crosshair;
+namespace Crossveil.Crosshair;
 
 public static class CrosshairCache
 {

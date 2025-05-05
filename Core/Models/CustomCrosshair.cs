@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CrossVeil.Core.Models;
+namespace Crossveil.Core.Models;
 
 public class CustomCrosshair
 {

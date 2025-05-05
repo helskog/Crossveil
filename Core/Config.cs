@@ -1,6 +1,6 @@
 ﻿using BepInEx.Configuration;
 
-namespace CrossVeil.Core;
+namespace Crossveil.Core;
 
 public class Config
 {

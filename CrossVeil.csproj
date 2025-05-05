@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <AssemblyName>CrossVeil</AssemblyName>
+    <AssemblyName>Crossveil</AssemblyName>
     <Description>A V Rising mod to customize your crosshairs</Description>
     <Version>1.0.0</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
-    <RootNamespace>CrossVeil</RootNamespace>
+    <RootNamespace>Crossveil</RootNamespace>
     <AssemblyVersion>1.0.0</AssemblyVersion>
     <FileVersion>1.0.0</FileVersion>
   </PropertyGroup>
@@ -17,6 +17,6 @@
     <PackageReference Include="VRising.Unhollowed.Client" Version="1.1.0.9121701" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="move /Y &quot;C:\dev\V Rising dev\V-Rising Plugins\Client\CrossVeil\bin\Release\net6.0\CrossVeil.dll&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\VRising\BepInEx\Plugins\CrossVeil.dll&quot;" />
+    <Exec Command="move /Y &quot;C:\dev\V Rising dev\V-Rising Plugins\Client\Crossveil\bin\Release\net6.0\Crossveil.dll&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\VRising\BepInEx\Plugins\Crossveil.dll&quot;" />
   </Target>
 </Project>

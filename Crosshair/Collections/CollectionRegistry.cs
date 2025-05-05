@@ -1,5 +1,5 @@
-﻿using CrossVeil.Core;
-using CrossVeil.Core.Models;
+﻿using Crossveil.Core;
+using Crossveil.Core.Models;
 
 using System;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-namespace CrossVeil.Crosshair.Collections;
+namespace Crossveil.Crosshair.Collections;
 
 public class CollectionRegistry
 {

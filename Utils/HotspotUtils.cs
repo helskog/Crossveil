@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CrossVeil.Utils;
+namespace Crossveil.Utils;
 
 public static class HotspotUtils
 {

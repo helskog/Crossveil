@@ -1,5 +1,5 @@
-﻿using CrossVeil.Core;
-using CrossVeil.Utils;
+﻿using Crossveil.Core;
+using Crossveil.Utils;
 
 using BepInEx;
 
@@ -7,7 +7,7 @@ using System.IO;
 using UnityEngine;
 using System.Reflection;
 
-namespace CrossVeil.Crosshair.Collections;
+namespace Crossveil.Crosshair.Collections;
 
 public static class CollectionImport
 {
@@ -17,7 +17,7 @@ public static class CollectionImport
 
 		foreach (var res in asm.GetManifestResourceNames())
 		{
-			if (!res.StartsWith("CrossVeil.Crosshairs.") || !res.EndsWith(".png"))
+			if (!res.StartsWith("Crossveil.Crosshairs.") || !res.EndsWith(".png"))
 				continue;
 
 			using var stream = asm.GetManifestResourceStream(res);
@@ -35,7 +35,7 @@ public static class CollectionImport
 			// Create a new Texture2D from byte array
 			var tex = TextureUtils.FromByteArray(bytes);
 
-			tex.name = res.Replace("CrossVeil.Crosshairs.", "").Replace(".png", "");
+			tex.name = res.Replace("Crossveil.Crosshairs.", "").Replace(".png", "");
 			tex.hideFlags |= HideFlags.DontUnloadUnusedAsset;
 
 			Plugin.Collections.Add(tex, "Standard");
@@ -44,7 +44,7 @@ public static class CollectionImport
 
 	public static void Custom()
 	{
-		var root = Path.Combine(Paths.ConfigPath, "CrossVeil");
+		var root = Path.Combine(Paths.ConfigPath, "Crossveil");
 
 		if (!Directory.Exists(root))
 			Directory.CreateDirectory(root);

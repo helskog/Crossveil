@@ -1,10 +1,10 @@
 ﻿using System.IO;
 
-using CrossVeil.Core;
+using Crossveil.Core;
 
 using UnityEngine;
 
-namespace CrossVeil.Utils;
+namespace Crossveil.Utils;
 
 public static class TextureUtils
 {

@@ -2,14 +2,14 @@
 using BepInEx.Logging;
 using BepInEx.Unity.IL2CPP;
 
-using CrossVeil.Core.UI;
-using CrossVeil.Crosshair.Collections;
+using Crossveil.Core.UI;
+using Crossveil.Crosshair.Collections;
 
 using HarmonyLib;
 
 using System.Reflection;
 
-namespace CrossVeil.Core;
+namespace Crossveil.Core;
 
 [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
 public class Plugin : BasePlugin

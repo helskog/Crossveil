@@ -1,11 +1,11 @@
-﻿using CrossVeil.Core;
-using CrossVeil.Crosshair;
-using CrossVeil.Core.UI.Components;
+﻿using Crossveil.Core;
+using Crossveil.Crosshair;
+using Crossveil.Core.UI.Components;
 
 using HarmonyLib;
 using ProjectM.UI;
 
-namespace CrossVeil.Patch;
+namespace Crossveil.Patch;
 
 [HarmonyPatch(typeof(OptionsPanel_Interface), nameof(OptionsPanel_Interface.Start))]
 internal static class Patch_OptionsPanel_Interface
@@ -45,7 +45,7 @@ internal static class Patch_OptionsPanel_Interface
 			.Tooltip("<align=\"center\">Select a crosshair collection.\n\n\n" +
 			"<color=#ecdd1f><b>MANAGE COLLECTIONS</b></color>\n\n" +
 			"<size=75%>Go to the game install folder then open this path:\n" +
-			"<b><color=#e6e6e6>BepInEx\\config\\CrossVeil</color></b>\n\n" +
+			"<b><color=#e6e6e6>BepInEx\\config\\Crossveil</color></b>\n\n" +
 			"Each folder inside the directory containing <color=#FF0000>at least one <b>.png</b> image</color> " +
 			"will be imported as a unique collection at startup.\n\n" +
 			"For the best results use evenly sized images like <b>32x32</b>, <b>64x64</b> or <b>128x128</b> for example.</size></align>")

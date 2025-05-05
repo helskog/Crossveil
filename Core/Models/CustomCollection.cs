@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 
-namespace CrossVeil.Core.Models;
+namespace Crossveil.Core.Models;
 
 public class CustomCollection
 {

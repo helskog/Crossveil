@@ -1,5 +1,5 @@
-﻿using CrossVeil.Utils;
-using CrossVeil.Core.Models;
+﻿using Crossveil.Utils;
+using Crossveil.Core.Models;
 
 using TMPro;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.TextCore;
 
-namespace CrossVeil.Core.UI;
+namespace Crossveil.Core.UI;
 
 public sealed class SpriteAtlas
 {
