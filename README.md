@@ -36,9 +36,9 @@ C:\Program Files (x86 \Steam\steamapps\common\VRising\BepInEx\config\Crossveil
 05.05.2025  08:39    <DIR>          ..
 04.05.2025  11:10    <DIR>          Cats
 04.05.2025  11:09    <DIR>          Memes
-29.04.2025  06:11    <DIR>          Standard
+29.04.2025  06:11    <DIR>          Funny
 
-C:\Program Files (x86)\Steam\steamapps\common\VRising\BepInEx\config\Crossveil\Standard
+C:\Program Files (x86)\Steam\steamapps\common\VRising\BepInEx\config\Crossveil\Funny
 05.05.2025  11:14    <DIR>          .
 04.05.2025  11:12    <DIR>          ..
 23.04.2025  21:11             4 132 crosshair1.png
