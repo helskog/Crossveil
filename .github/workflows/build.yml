@@ -32,7 +32,7 @@ jobs:
           additionalArguments: '/updateprojectfiles /overrideconfig "mode=Mainline"'
 
       - name: Build (Release)
-        run: dotnet build . --configuration Release --no-restore -p:Version=$GitVersion_SemVer
+        run: dotnet build . --configuration Release --no-restore -p:Version=$GitVersion_SemVer -p:PostBuildEvent=
         
       - name: Update versions in toml files
         run: |
