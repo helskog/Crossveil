@@ -28,7 +28,7 @@ The options are available inside the normal game menu under `General` at the ver
 
 ## Included crosshairs
 The mod comes with a selection of default crosshairs pre-installed to get you started.
-<img src="https://i.ibb.co/cSC77K6J/Included-Crosshairs-Centered.png"/>
+<img src="https://i.ibb.co/ynRY6wM7/bg-removed-crosshairselection.png"/>
 
 ## Custom Collections
 1️⃣ Make sure you have ran the game at least once since installing the mod.<br>

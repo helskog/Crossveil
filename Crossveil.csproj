@@ -27,4 +27,7 @@
 	<ItemGroup>
 	  <None Include=".github\workflows\build.yml" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Marketing\" />
+	</ItemGroup>
 </Project>
