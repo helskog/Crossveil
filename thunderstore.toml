@@ -17,6 +17,14 @@ icon = "./logo_256.png"
 readme = "./README.md"
 outdir = "./build"
 
+[[build.copy]]
+source = "./bin/Release/net6.0/Crossveil.dll"
+target = "./XPRising.dll"
+
+[[build.copy]]
+source = "../CHANGELOG.md"
+target = "./CHANGELOG.md"
+
 [publish]
 communities = ["v-rising"]
 repository = "https://thunderstore.io"
