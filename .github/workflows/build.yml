@@ -27,12 +27,13 @@ jobs:
         run: dotnet restore
 
       - name: Determine Version
+        id: gitversion
         uses: gittools/actions/gitversion/execute@v1.1.1
         with:
           additionalArguments: '/updateprojectfiles /overrideconfig "mode=Mainline"'
 
       - name: Sync versionNumber in thunderstore.toml
-        run: sed -i 's/^versionNumber = .*/versionNumber = "${{ env.GitVersion_MajorMinorPatch }}"/' thunderstore.toml
+        run: sed -i 's/^versionNumber = .*/versionNumber = "${{ steps.gitversion.outputs.majorMinorPatch }}"/' thunderstore.toml
         shell: bash
 
       - name: Build (Release)
@@ -48,7 +49,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: thunderstore packages
-          path: ./build/Crossveil-Thunderstore-${{ env.GitVersion_MajorMinorPatch }}.zip
+          path: ./build/helskog-Crossveil-${{ steps.gitversion.outputs.majorMinorPatch }}.zip
 
           retention-days: 1
           compression-level: 0    
@@ -62,4 +63,4 @@ jobs:
           fail_on_unmatched_files: true
           prerelease: true
           tag_name: v${{ env.GitVersion_MajorMinorPatch }}
-          files: ./build/Crossveil-Thunderstore-${{ env.GitVersion_MajorMinorPatch }}.zip
+          files: ./build/helskog-Crossveil-${{ steps.gitversion.outputs.majorMinorPatch }}.zip
