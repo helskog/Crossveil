@@ -1,6 +1,6 @@
 ﻿using BepInEx.Configuration;
 
-namespace CrosshairChanger.Core;
+namespace CrossVeil.Core;
 
 public class Config
 {

@@ -8,7 +8,7 @@ using Stunlock.Core;
 using Stunlock.Localization;
 using UnityEngine;
 
-namespace CrosshairChanger.Core.UI.Components;
+namespace CrossVeil.Core.UI.Components;
 
 internal class CustomDropdown
 {

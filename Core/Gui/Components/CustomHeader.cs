@@ -3,7 +3,7 @@
 using Stunlock.Core;
 using Stunlock.Localization;
 
-namespace CrosshairChanger.Core.UI.Components;
+namespace CrossVeil.Core.UI.Components;
 
 internal class CustomHeader
 {

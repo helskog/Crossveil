@@ -1,5 +1,5 @@
-﻿using CrosshairChanger.Utils;
-using CrosshairChanger.Core.Models;
+﻿using CrossVeil.Utils;
+using CrossVeil.Core.Models;
 
 using TMPro;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.TextCore;
 
-namespace CrosshairChanger.Core.UI;
+namespace CrossVeil.Core.UI;
 
 public sealed class SpriteAtlas
 {

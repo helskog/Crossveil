@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CrosshairChanger.Utils;
+namespace CrossVeil.Utils;
 
 public static class HotspotUtils
 {

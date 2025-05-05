@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 
-namespace CrosshairChanger.Core.Models;
+namespace CrossVeil.Core.Models;
 
 public class CustomCollection
 {

@@ -1,10 +1,10 @@
 ﻿using System.IO;
 
-using CrosshairChanger.Core;
+using CrossVeil.Core;
 
 using UnityEngine;
 
-namespace CrosshairChanger.Utils;
+namespace CrossVeil.Utils;
 
 public static class TextureUtils
 {

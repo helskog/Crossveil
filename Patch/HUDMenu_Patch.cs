@@ -1,10 +1,10 @@
-﻿using CrosshairChanger.Core;
+﻿using CrossVeil.Core;
 
 using HarmonyLib;
 
 using ProjectM.UI;
 
-namespace CrosshairChanger.Patch;
+namespace CrossVeil.Patch;
 
 // Credit where its due to original ModernCamera mod for the patches.
 
