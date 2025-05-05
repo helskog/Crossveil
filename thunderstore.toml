@@ -21,10 +21,6 @@ outdir = "./build"
 source = "./bin/Release/net6.0/Crossveil.dll"
 target = "./Crossveil.dll"
 
-[[build.copy]]
-source = "../CHANGELOG.md"
-target = "./CHANGELOG.md"
-
 [publish]
 communities = ["v-rising"]
 repository = "https://thunderstore.io"
