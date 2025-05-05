@@ -19,13 +19,13 @@ Crossveil intercepts cursor rendering logic inside `SetCursorSystem.OnUpdate` an
 
 3️⃣ ️Place the `Crossveil.dll` file inside the `\BepInEx\plugins` folder.<br>
 
-## Default crosshairs
+## Included crosshairs
 <p align="center"><img src="https://i.ibb.co/cSC77K6J/Included-Crosshairs-Centered.png"/></p>
 
 ## Custom Collections
 1️⃣ Make sure you have ran the game at least once since installing the mod.<br>
 
-2️⃣ A folder called `\BepInEx\config\Crossveil` should have been automatically created.<br>
+2️⃣ The directory `\BepInEx\config\Crossveil` should have been automatically created.<br>
 
 3️⃣ Each sub-folder inside containing **==at least one .png image==**  will be defined as and imported as its own collection of crosshairs when you start up V Rising.<br>
 
