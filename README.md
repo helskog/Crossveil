@@ -1,5 +1,5 @@
 # Crossveil
-A client side mod made for V Rising that allows you to fully replace the default crosshairs.
+A client-sided mod for V Rising made for fully replacing the default game crosshairs with your own.
 
 ## Features
 🎯 Swap default crosshairs with custom images<br>
@@ -17,10 +17,18 @@ Crossveil intercepts cursor rendering logic inside `SetCursorSystem.OnUpdate` an
 
 2️⃣ Make sure you have the latest version of [BepInEx](https://thunderstore.io/c/v-rising/p/BepInEx/BepInExPack_V_Rising/) for V Rising, if installed for the first time make sure to run the game at least once and close it afterwards for the plugins & config directories to be created automatically.<br>
 
+❗Due to the recent 1.1 Invaders Of Oakveil update you need to use [this](https://github.com/decaprime/VRising-Modding/releases/tag/1.733.2) release candidate of BepInEx for this mod to work! The same installation method still applies, this message will be removed once BepInExPack has been updated on Thunderstore.
+
 3️⃣ ️Place the `Crossveil.dll` file inside the `\BepInEx\plugins` folder.<br>
 
+## Options Menu
+The options are available inside the normal game menu under `General` at the very bottom of the page.
+
+<img src="https://i.ibb.co/35Zj9Y2r/optionsmenu.png"/>
+
 ## Included crosshairs
-<p align="center"><img src="https://i.ibb.co/cSC77K6J/Included-Crosshairs-Centered.png"/></p>
+The mod comes with a selection of default crosshairs pre-installed to get you started.
+<img src="https://i.ibb.co/cSC77K6J/Included-Crosshairs-Centered.png"/>
 
 ## Custom Collections
 1️⃣ Make sure you have ran the game at least once since installing the mod.<br>
@@ -55,8 +63,9 @@ Use images that are even in size and has an obvious **hotspot** placement for al
 
 Is is recommended to keep crosshair scaling **off** due to potential negative impacts on performance and colouration of the images. Milage may vary here, so feel free to play around with it!
 
-#### Credits
+
+### Credits
 🧛 [V Rising Modding Community](https://wiki.vrisingmods.com/)  |  [Discord](https://discord.com/invite/QG2FmueAG9)
 
-#### License
+### License
 [This project is licensed under the AGPL-3.0 license.](https://choosealicense.com/licenses/agpl-3.0/#)
