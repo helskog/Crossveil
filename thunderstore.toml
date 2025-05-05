@@ -4,7 +4,7 @@ schemaVersion = "0.0.1"
 [package]
 namespace = "helskog"
 name = "Crossveil"
-versionNumber = "__VERSION__"
+versionNumber = "1.0.0"
 description = "Fully replace the standard Cursors/Crosshairs with your own!"
 websiteUrl = "https://github.com/helskog/Crossveil"
 containsNsfwContent = false
