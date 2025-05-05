@@ -26,7 +26,6 @@ public class Plugin : BasePlugin
 
 	public override void Load()
 	{
-		//
 		Log = base.Log;
 
 		// Initialize configuration file

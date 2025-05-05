@@ -33,16 +33,12 @@ jobs:
 
       - name: Build (Release)
         run: dotnet build . --configuration Release --no-restore -p:Version=$GitVersion_SemVer -p:PostBuildEvent=
-        
-      - name: Update versions in toml files
-        run: |
-          sed -i 's/__VERSION__/${{ env.GitVersion_MajorMinorPatch }}/g' ./Crossveil/thunderstore.toml
 
       - name: Install Thunderstore CLI (tcli)
         run: dotnet tool install --global tcli
         
       - name: Build Thunderstore Package
-        run: tcli build --config-path ./XPRising/thunderstore.toml
+        run: tcli build --config-path ./Crossveil/thunderstore.toml
 
       - name: Upload artifacts during pipeline for testing
         uses: actions/upload-artifact@v4
