@@ -19,6 +19,9 @@
 	<ItemGroup>
 		<EmbeddedResource Include="Embedded\*.png" />
 	</ItemGroup>
+	<ItemGroup>
+	  <None Include=".github\workflows\build.yml" />
+	</ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="move /Y &quot;C:\dev\V Rising dev\V-Rising Plugins\Client\Crossveil\bin\Release\net6.0\Crossveil.dll&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\VRising\BepInEx\Plugins\Crossveil.dll&quot;" />
   </Target>

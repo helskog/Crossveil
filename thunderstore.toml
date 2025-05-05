@@ -1,0 +1,24 @@
+[config]
+schemaVersion = "0.0.1"
+
+[package]
+namespace = "helskog"
+name = "Crossveil"
+versionNumber = "__VERSION__"
+description = "Fully replace the standard Cursors/Crosshairs with your own!"
+websiteUrl = "https://github.com/helskog/Crossveil"
+containsNsfwContent = false
+
+[package.dependencies]
+BepInEx-BepInExPack_V_Rising = "1.691.3"
+
+[build]
+icon = "./logo_256.png"
+readme = "./README.md"
+outdir = "./build"
+
+[publish]
+communities = ["v-rising"]
+repository = "https://thunderstore.io"
+[publish.categories]
+v-rising = ["Client", "Mods", "Oakveil Update"]
