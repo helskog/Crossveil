@@ -9,6 +9,9 @@
     <RootNamespace>Crossveil</RootNamespace>
     <AssemblyVersion>1.0.0</AssemblyVersion>
     <FileVersion>1.0.0</FileVersion>
+	<PostBuildEvent Condition="'$(OS)' == 'Windows_NT'">
+		move /Y "$(TargetDir)Crossveil.dll" "C:\Program Files (x86)\Steam\steamapps\common\VRising\BepInEx\Plugins\Crossveil.dll"
+	</PostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.691" IncludeAssets="compile" />
@@ -22,7 +25,4 @@
 	<ItemGroup>
 	  <None Include=".github\workflows\build.yml" />
 	</ItemGroup>
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="move /Y &quot;C:\dev\V Rising dev\V-Rising Plugins\Client\Crossveil\bin\Release\net6.0\Crossveil.dll&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\VRising\BepInEx\Plugins\Crossveil.dll&quot;" />
-  </Target>
 </Project>
