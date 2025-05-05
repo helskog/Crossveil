@@ -31,6 +31,10 @@ jobs:
         with:
           additionalArguments: '/updateprojectfiles /overrideconfig "mode=Mainline"'
 
+      - name: Sync versionNumber in thunderstore.toml
+        run: sed -i 's/^versionNumber = .*/versionNumber = "${{ env.GitVersion_MajorMinorPatch }}"/' thunderstore.toml
+        shell: bash
+
       - name: Build (Release)
         run: dotnet build . --configuration Release --no-restore -p:Version=$GitVersion_SemVer -p:PostBuildEvent=
 
