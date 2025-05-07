@@ -4,6 +4,7 @@ using ProjectM;
 using ProjectM.UI;
 
 using HarmonyLib;
+using Crossveil.Core;
 
 namespace Crossveil.Patches;
 

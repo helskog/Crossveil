@@ -149,6 +149,10 @@ internal class CustomDropdown
 				_options.Add("Top Right");
 				_options.Add("Bottom Left");
 				_options.Add("Bottom Right");
+				_options.Add("Center Left");
+				_options.Add("Center Right");
+				_options.Add("Top Center");
+				_options.Add("Bottom Center");
 				break;
 		}
 	}

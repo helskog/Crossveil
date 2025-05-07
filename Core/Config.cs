@@ -5,6 +5,8 @@ namespace Crossveil.Core;
 public class Config
 {
 	internal static ConfigEntry<bool> ModEnabled;
+	internal static ConfigEntry<bool> HideCrosshair;
+	internal static ConfigEntry<bool> UseWindows;
 	internal static ConfigEntry<bool> ChangeInMenus;
 	internal static ConfigEntry<int> CollectionIndex;
 	internal static ConfigEntry<int> CrosshairIndex;
@@ -17,6 +19,8 @@ public class Config
 		config.SaveOnConfigSet = true;
 
 		ModEnabled = config.Bind("Options", "EnableCustomCrosshair", false, "Selected option to enable the mod.");
+		HideCrosshair = config.Bind("Options", "HideCrosshair", false, "Hides the game crosshair.");
+		UseWindows = config.Bind("Options", "UseWindows", false, "Uses the windows cursor");
 		ChangeInMenus = config.Bind("Options", "ChangeInMenus", false, "Selected option to change menu crosshairs.");
 		ScaleEnabled = config.Bind("Options", "ScaleEnabled", false, "Selected option to change menu crosshairs.");
 

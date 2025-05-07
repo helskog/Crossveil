@@ -4,7 +4,7 @@
     <AssemblyName>Crossveil</AssemblyName>
     <Description>A V Rising mod to customize your crosshairs</Description>
 	  
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
 	  
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
@@ -26,8 +26,5 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <None Include=".github\workflows\build.yml" />
-	</ItemGroup>
-	<ItemGroup>
-	  <Folder Include="Marketing\" />
 	</ItemGroup>
 </Project>

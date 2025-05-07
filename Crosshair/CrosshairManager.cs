@@ -5,16 +5,19 @@ using ProjectM;
 using UnityEngine;
 using System.Linq;
 using ProjectM.UI;
+using static UnityEngine.UI.Image;
 
 namespace Crossveil.Crosshair;
 
 public static class CrosshairManager
 {
+	public static bool isMenuContext;
+
 	public static void ApplyCurrent()
 	{
 		bool isInMainMenu = ViewManager.IsInMenu();
 		bool isInOtherMenu = Plugin.inMenuState;
-		bool isMenuContext = isInMainMenu || isInOtherMenu;
+		isMenuContext = isInMainMenu || isInOtherMenu;
 
 		if (!Config.ModEnabled.Value)
 		{
@@ -31,7 +34,6 @@ public static class CrosshairManager
 		}
 
 		var type = isMenuContext ? CursorType.Menu_Normal : CursorType.Game_Normal;
-
 		bool allowInMenu = Config.ChangeInMenus.Value;
 
 		if (isMenuContext && !allowInMenu)
@@ -62,7 +64,7 @@ public static class CrosshairManager
 			return null;
 
 		Texture2D texture = crosshair.Texture;
-		if (scaleEnabled && scale != 1f && !ViewManager.IsInMenu())
+		if (scaleEnabled && scale != 1f && !isMenuContext)
 		{
 			texture = CrosshairCache.GetOrAddScaled(collectionIndex, crosshairIndex, crosshair.Texture, scale);
 			if (texture == null)
@@ -82,6 +84,7 @@ public static class CrosshairManager
 	private static void RestoreOriginal(CursorType type)
 	{
 		var original = CrosshairCache.RestoreOriginal(type);
+
 		if (original != null)
 		{
 			ApplyCursor(original, CursorMode.Auto);
@@ -93,8 +96,21 @@ public static class CrosshairManager
 		if (cursor == null || cursor.Texture == null)
 			return;
 
+		var finalTex = cursor.Texture;
+		var type = cursor.CursorType;
 		var mode = overrideMode ?? (Config.ScaleEnabled.Value ? CursorMode.ForceSoftware : CursorMode.Auto);
 
-		Cursor.SetCursor(cursor.Texture, cursor.Hotspot, mode);
+		if (Config.ModEnabled.Value)
+		{
+			finalTex = type.Equals(CursorType.Menu_Normal) && Config.ChangeInMenus.Value && Config.UseWindows.Value ? null : finalTex;
+			finalTex = type.Equals(CursorType.Game_Normal) && Config.UseWindows.Value ? null : finalTex;
+		}
+
+		Cursor.SetCursor(finalTex, cursor.Hotspot, mode);
+
+		if (Config.ModEnabled.Value && Config.HideCrosshair.Value && !isMenuContext)
+		{
+			Cursor.visible = false;
+		}
 	}
 }

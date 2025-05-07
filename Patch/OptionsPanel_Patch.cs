@@ -29,6 +29,24 @@ internal static class Patch_OptionsPanel_Interface
 			.OnValueChanged(OnModEnabledToggle)
 			.Build();
 
+		var _hideCrosshairToggle = new CustomToggle()
+			.Panel(__instance)
+			.Label("Hide Crosshair")
+			.Tooltip("<align=\"center\">Hide the game crosshair except inside menus.</align>")
+			.DefaultValue(false)
+			.InitialValue(Config.HideCrosshair.Value)
+			.OnValueChanged(OnHideCrosshairToggle)
+			.Build();
+
+		var _useWindowsCursorToggle = new CustomToggle()
+			.Panel(__instance)
+			.Label("Use Windows Cursor")
+			.Tooltip("<align=\"center\">Uses your system crosshair as the default crosshair.</align>")
+			.DefaultValue(false)
+			.InitialValue(Config.UseWindows.Value)
+			.OnValueChanged(OnUseWindowsCursor)
+			.Build();
+
 		var _changeInMenuToggle = new CustomToggle()
 			.Panel(__instance)
 			.Label("Change In Menus")
@@ -110,6 +128,22 @@ internal static class Patch_OptionsPanel_Interface
 	{
 		Config.ModEnabled.Value = value;
 		Plugin.Log.LogInfo($"[UI] Mod enabled changed to: {value}");
+
+		CrosshairManager.ApplyCurrent();
+	}
+
+	private static void OnHideCrosshairToggle(bool value)
+	{
+		Config.HideCrosshair.Value = value;
+		Plugin.Log.LogInfo($"[UI] Hide crosshair changed to: {value}");
+
+		CrosshairManager.ApplyCurrent();
+	}
+
+	private static void OnUseWindowsCursor(bool value)
+	{
+		Config.UseWindows.Value = value;
+		Plugin.Log.LogInfo($"[UI] Use windows crosshair changed to: {value}");
 
 		CrosshairManager.ApplyCurrent();
 	}

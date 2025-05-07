@@ -3,6 +3,8 @@ A client-sided mod for V Rising made for fully replacing the default game crossh
 
 ## Features
 🎯 Swap default crosshairs with custom images<br>
+☝  Swap default crosshairs with your Windows Cursor<br>
+🔎 Hide the crosshair completely<br>
 💾 Import folders of .png images into custom collections<br>
 🔥 Adjustable crosshair hotspot location<br>
 🎯 Scale crosshairs to your preferred size<br>
@@ -66,6 +68,9 @@ Is is recommended to keep crosshair scaling **off** due to potential negative im
 
 ### Credits
 🧛 [V Rising Modding Community](https://wiki.vrisingmods.com/)  |  [Discord](https://discord.com/invite/QG2FmueAG9)
+
+### Support & Bug reports
+Join the V Rising Modding Community discord with the link above and create a post in the `🙋|Technical Support` channel and tag `#helskog` 
 
 ### License
 [This project is licensed under the AGPL-3.0 license.](https://choosealicense.com/licenses/agpl-3.0/#)
