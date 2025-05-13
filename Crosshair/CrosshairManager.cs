@@ -16,19 +16,17 @@ public static class CrosshairManager
 	public static void ApplyCurrent()
 	{
 		bool isInMainMenu = ViewManager.IsInMenu();
-		bool isInOtherMenu = Plugin.inMenuState;
+		bool isInOtherMenu = Plugin.InMenuState;
 		isMenuContext = isInMainMenu || isInOtherMenu;
 
+		if (Config.ModEnabled.Value && Config.ScaleEnabled.Value)
+		{
+			EnsureScalingInitialized();
+		}
+		
 		if (!Config.ModEnabled.Value)
 		{
-			if (isMenuContext)
-			{
-				RestoreOriginal(CursorType.Menu_Normal);
-			}
-			else
-			{
-				RestoreOriginal(CursorType.Game_Normal);
-			}
+			RestoreOriginal(isMenuContext ? CursorType.Menu_Normal : CursorType.Game_Normal);
 
 			return;
 		}
@@ -48,6 +46,12 @@ public static class CrosshairManager
 			ApplyCursor(cursor);
 	}
 
+	private static void EnsureScalingInitialized()
+	{
+		CrosshairCache.ClearScaled();
+		Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
+	}
+	
 	private static CursorData GetCustomCrosshair(CursorType type)
 	{
 		int collectionIndex = Config.CollectionIndex.Value;
@@ -60,15 +64,21 @@ public static class CrosshairManager
 			return null;
 
 		var crosshair = collection.Crosshairs.ElementAtOrDefault(crosshairIndex);
-		if (crosshair == null || crosshair.Texture == null)
+		if (crosshair == null || !crosshair.Texture)
 			return null;
 
 		Texture2D texture = crosshair.Texture;
-		if (scaleEnabled && scale != 1f && !isMenuContext)
+		
+		bool shouldApplyScaling = scaleEnabled && !Mathf.Approximately(scale, 1f);
+    
+		if (shouldApplyScaling && !Config.UseWindows.Value && !Config.HideCrosshair.Value)
 		{
 			texture = CrosshairCache.GetOrAddScaled(collectionIndex, crosshairIndex, crosshair.Texture, scale);
-			if (texture == null)
-				return null;
+			if (!texture)
+			{
+				Plugin.Log.LogWarning("Failed to get or add scaled texture, falling back to unscaled");
+				texture = crosshair.Texture; // Fallback to original texture
+			}
 		}
 
 		Vector2 hotspot = HotspotUtils.GetHotspot(Config.HotspotIndex.Value, texture);
@@ -98,12 +108,18 @@ public static class CrosshairManager
 
 		var finalTex = cursor.Texture;
 		var type = cursor.CursorType;
+		
 		var mode = overrideMode ?? (Config.ScaleEnabled.Value ? CursorMode.ForceSoftware : CursorMode.Auto);
-
+		
 		if (Config.ModEnabled.Value)
 		{
 			finalTex = type.Equals(CursorType.Menu_Normal) && Config.ChangeInMenus.Value && Config.UseWindows.Value ? null : finalTex;
 			finalTex = type.Equals(CursorType.Game_Normal) && Config.UseWindows.Value ? null : finalTex;
+		}
+		
+		if (Config.ScaleEnabled.Value && mode != CursorMode.ForceSoftware)
+		{
+			mode = CursorMode.ForceSoftware;
 		}
 
 		Cursor.SetCursor(finalTex, cursor.Hotspot, mode);

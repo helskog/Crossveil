@@ -11,9 +11,6 @@
     <RootNamespace>Crossveil</RootNamespace>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <FileVersion>$(Version)</FileVersion>
-	<PostBuildEvent Condition="'$(OS)' == 'Windows_NT'">
-		move /Y "$(TargetDir)Crossveil.dll" "C:\Program Files (x86)\Steam\steamapps\common\VRising\BepInEx\Plugins\Crossveil.dll"
-	</PostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.691" IncludeAssets="compile" />

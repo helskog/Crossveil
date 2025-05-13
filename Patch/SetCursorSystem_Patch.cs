@@ -17,12 +17,10 @@ internal static class Patch_SetCursorSystem_OnUpdate
 	{
 		var data = CursorController._CursorDatas;
 
-		if (!_originalsCached)
+		if (Plugin.ShouldCollectCache && !_originalsCached)
 		{
 			CrosshairCache.CacheOriginals(data);
 			_originalsCached = true;
 		}
-
-		CrosshairManager.ApplyCurrent();
 	}
 }

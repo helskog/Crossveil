@@ -34,7 +34,13 @@ public static class CrosshairCache
 		_scaledCrosshairs[key] = scaled;
 		return scaled;
 	}
-
+	
+	private static void EnsureScalingInitialized()
+	{
+		CrosshairCache.ClearScaled();
+		Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
+	}
+	
 	/// <summary>
 	/// Cache original CursorData
 	/// </summary>

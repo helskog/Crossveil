@@ -6,12 +6,13 @@ using System.Linq;
 
 using UnityEngine;
 using UnityEngine.TextCore;
+using Object = UnityEngine.Object;
 
-namespace Crossveil.Core.UI;
+namespace Crossveil.Core.Gui;
 
 public sealed class SpriteAtlas
 {
-	private TMP_SpriteAsset _atlas;
+	private readonly TMP_SpriteAsset _atlas;
 	public TMP_SpriteAsset Atlas => _atlas;
 
 	public SpriteAtlas()
@@ -94,16 +95,15 @@ public sealed class SpriteAtlas
 				index = (uint)i,
 				glyphRect = glyphRectVar,
 				scale = 1.0f,
-				sprite = sprite
+				sprite = sprite,
+				metrics = new GlyphMetrics(
+					(int)pixelRectVar.width,
+					(int)pixelRectVar.height,
+					0,
+					(int)pixelRectVar.height * 0.8f, // Looks like this is vertical placement
+					(int)pixelRectVar.width
+				)
 			};
-
-			glyph.metrics = new GlyphMetrics(
-							(int)pixelRectVar.width,
-							(int)pixelRectVar.height,
-							0,
-							(int)pixelRectVar.height * 0.8f, // Looks like this is vertical placement
-							(int)pixelRectVar.width
-			);
 
 			_atlas.spriteGlyphTable.Add(glyph);
 
@@ -131,10 +131,5 @@ public sealed class SpriteAtlas
 		_atlas.SortCharacterTable();
 
 		Plugin.Log.LogInfo($"Built sprite atlas with {entries.Length} imported textures");
-		for (int i = 0; i < _atlas.spriteInfoList.Count; i++)
-		{
-			var info = _atlas.spriteInfoList[i];
-			Plugin.Log.LogInfo($"[{i}] name=\"{info.name}\"  unicode=0x{info.unicode:X}  hash={info.hashCode}");
-		}
 	}
 }

@@ -2,12 +2,12 @@
 using BepInEx.Logging;
 using BepInEx.Unity.IL2CPP;
 
-using Crossveil.Core.UI;
 using Crossveil.Crosshair.Collections;
 
 using HarmonyLib;
 
 using System.Reflection;
+using Crossveil.Core.Gui;
 
 namespace Crossveil.Core;
 
@@ -21,12 +21,15 @@ public class Plugin : BasePlugin
 	public static CollectionRegistry Collections { get; set; }
 	public static SpriteAtlas SpriteAsset { get; set; }
 
-	public static bool inMenuState { get; set; }
+	public static bool InMenuState { get; set; }
+	public static bool ShouldCollectCache { get; set; }
 
 	public override void Load()
 	{
 		Log = base.Log;
 
+		ShouldCollectCache = false;
+		
 		// Initialize configuration file
 		Core.Config.Initialize(Config);
 

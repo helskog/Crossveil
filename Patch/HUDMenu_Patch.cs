@@ -15,13 +15,13 @@ internal static class HUDMenu_Patch
 	[HarmonyPatch(typeof(HUDMenu), nameof(HUDMenu.OnEnable))]
 	private static void OnEnable()
 	{
-		Plugin.inMenuState = true;
+		Plugin.InMenuState = true;
 	}
 
 	[HarmonyPostfix]
 	[HarmonyPatch(typeof(HUDMenu), nameof(HUDMenu.OnDisable))]
 	private static void OnDisable()
 	{
-		Plugin.inMenuState = false;
+		Plugin.InMenuState = false;
 	}
 }
