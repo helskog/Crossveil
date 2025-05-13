@@ -8,19 +8,19 @@ using ProjectM.UI;
 namespace Crossveil.Patch;
 
 [HarmonyPatch(typeof(OptionsPanel_Interface), nameof(OptionsPanel_Interface.Start))]
-internal static class Patch_OptionsPanel_Interface
+internal static class PatchOptionsPanelInterface
 {
 	private static SettingsEntry_Dropdown _crosshairDropdown;
 
 	[HarmonyPostfix]
 	private static void Postfix(OptionsPanel_Interface __instance)
 	{
-		var _mainHeader = new CustomHeader()
+		var mainHeader = new CustomHeader()
 			.Panel(__instance)
 			.Label($"Crossveil {MyPluginInfo.PLUGIN_VERSION}")
 			.Build();
 
-		var _enableModToggle = new CustomToggle()
+		var enableModToggle = new CustomToggle()
 			.Panel(__instance)
 			.Label("Enable Mod")
 			.Tooltip("<align=\"center\">Enable or disable the mod.</align>")
@@ -29,7 +29,7 @@ internal static class Patch_OptionsPanel_Interface
 			.OnValueChanged(OnModEnabledToggle)
 			.Build();
 
-		var _hideCrosshairToggle = new CustomToggle()
+		var hideCrosshairToggle = new CustomToggle()
 			.Panel(__instance)
 			.Label("Hide Crosshair")
 			.Tooltip("<align=\"center\">Hide the game crosshair except inside menus.</align>")
@@ -38,7 +38,7 @@ internal static class Patch_OptionsPanel_Interface
 			.OnValueChanged(OnHideCrosshairToggle)
 			.Build();
 
-		var _useWindowsCursorToggle = new CustomToggle()
+		var useWindowsCursorToggle = new CustomToggle()
 			.Panel(__instance)
 			.Label("Use Windows Cursor")
 			.Tooltip("<align=\"center\">Uses your system crosshair as the default crosshair.</align>")
@@ -47,7 +47,7 @@ internal static class Patch_OptionsPanel_Interface
 			.OnValueChanged(OnUseWindowsCursor)
 			.Build();
 
-		var _changeInMenuToggle = new CustomToggle()
+		var changeInMenuToggle = new CustomToggle()
 			.Panel(__instance)
 			.Label("Change In Menus")
 			.Tooltip("<align=\"center\">Show the crosshair inside game menus.</align>")
@@ -56,7 +56,7 @@ internal static class Patch_OptionsPanel_Interface
 			.OnValueChanged(OnChangeInMenusToggle)
 			.Build();
 
-		var _collectionDropdown = new CustomDropdown()
+		var collectionDropdown = new CustomDropdown()
 			.Panel(__instance)
 			.Type(CustomDropdown.DropdownType.COLLECTION)
 			.Label("Crosshair Collection")
@@ -97,7 +97,7 @@ internal static class Patch_OptionsPanel_Interface
 			.OnValueChanged(OnHotspotChanged)
 			.Build();
 
-		var _enableScalingToggle = new CustomToggle()
+		var enableScalingToggle = new CustomToggle()
 			.Panel(__instance)
 			.Label("Enable Crosshair Scaling")
 			.Tooltip("<align=\"center\">Scale the crosshair size up or down.\n\n\n" +
@@ -111,7 +111,7 @@ internal static class Patch_OptionsPanel_Interface
 			.OnValueChanged(OnScalingEnabled)
 			.Build();
 
-		var _changeScalingSlider = new CustomSlider()
+		var changeScalingSlider = new CustomSlider()
 			.Panel(__instance)
 			.Label("Scaling factor")
 			.MinValue(0.1f)

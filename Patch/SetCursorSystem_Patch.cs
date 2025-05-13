@@ -1,15 +1,13 @@
-﻿using Crossveil.Crosshair;
-
+﻿using Crossveil.Core;
+using Crossveil.Crosshair;
+using HarmonyLib;
 using ProjectM;
 using ProjectM.UI;
 
-using HarmonyLib;
-using Crossveil.Core;
-
-namespace Crossveil.Patches;
+namespace Crossveil.Patch;
 
 [HarmonyPatch(typeof(SetCursorSystem), nameof(SetCursorSystem.OnUpdate))]
-internal static class Patch_SetCursorSystem_OnUpdate
+internal static class PatchSetCursorSystemOnUpdate
 {
 	private static bool _originalsCached;
 

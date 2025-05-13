@@ -9,7 +9,7 @@ namespace Crossveil.Patch;
 // Credit where its due to original ModernCamera mod for the patches.
 
 [HarmonyPatch]
-internal static class HUDMenu_Patch
+internal static class HUDMenuPatch
 {
 	[HarmonyPostfix]
 	[HarmonyPatch(typeof(HUDMenu), nameof(HUDMenu.OnEnable))]
