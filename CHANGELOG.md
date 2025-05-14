@@ -1,9 +1,13 @@
-# Version 0.1.1
-- Added option to fully hide crosshair (except for menus).
-- Added option to use the Windows Cursor as the crosshair.
-- Added new hot spot selection options for better compatibility with certain crosshair types:<br>
-`Center Left, Center Right, Top Center, Bottom Center`
+# Version 0.1.3
 
-- Minor code cleanup.
+- Added option to allow/disallow scaling inside menus
+- Added dividers to UI with clear option groups.
+- Small adjustments
+
+- Fixed bug where texture would not persist through scene changes.
+- Fixed bug where error would appear on each launch because of early caching.
+
+- Refactored a lot of existing functions/code.
+- General cleanup
+
 - Adjusted README.md
-- Added AGPL 3.0 License to project files.
