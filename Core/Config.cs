@@ -12,6 +12,7 @@ public class Config
 	internal static ConfigEntry<int> CrosshairIndex;
 	internal static ConfigEntry<int> HotspotIndex;
 	internal static ConfigEntry<bool> ScaleEnabled;
+	internal static ConfigEntry<bool> ScaleInMenus;
 	internal static ConfigEntry<float> ScaleFactor;
 
 	internal static void Initialize(ConfigFile config)
@@ -23,6 +24,7 @@ public class Config
 		UseWindows = config.Bind("Options", "UseWindows", false, "Uses the windows cursor");
 		ChangeInMenus = config.Bind("Options", "ChangeInMenus", false, "Selected option to change menu crosshairs.");
 		ScaleEnabled = config.Bind("Options", "ScaleEnabled", false, "Selected option to change menu crosshairs.");
+		ScaleInMenus = config.Bind("Options", "ScaleInMenus", false, "Scale crosshair in menus.");
 
 		CollectionIndex = config.Bind("Variables", "CrosshairCollection", 0, "Selected collection.");
 		CrosshairIndex = config.Bind("Variables", "CrosshairStyle", 0, "Selected crosshair.");

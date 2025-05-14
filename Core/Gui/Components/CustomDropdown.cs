@@ -8,7 +8,7 @@ using Stunlock.Core;
 using Stunlock.Localization;
 using UnityEngine;
 
-namespace Crossveil.Core.UI.Components;
+namespace Crossveil.Core.Gui.Components;
 
 internal class CustomDropdown
 {
@@ -16,7 +16,7 @@ internal class CustomDropdown
 	private DropdownType _type;
 	private string _label;
 	private string _tooltip;
-	private List<string> _options = new();
+	private readonly List<string> _options = new();
 	private int _defaultValue;
 	private int _initialValue;
 	private Action<int> _onValueChanged;
@@ -98,19 +98,19 @@ internal class CustomDropdown
 				_onValueChanged
 		);
 
-		var tmp_DropdownChildComponent = entry.GetComponentInChildren<TMP_Dropdown>(true);
-		if (tmp_DropdownChildComponent == null) return null;
+		var tmpDropdownChildComponent = entry.GetComponentInChildren<TMP_Dropdown>(true);
+		if (!tmpDropdownChildComponent) return null;
 
-		var dropdownRect = tmp_DropdownChildComponent.GetComponent<RectTransform>();
+		var dropdownRect = tmpDropdownChildComponent.GetComponent<RectTransform>();
 		dropdownRect.sizeDelta = new Vector2(-300f, dropdownRect.sizeDelta.y);
 
-		tmp_DropdownChildComponent.captionText.richText = true;
-		tmp_DropdownChildComponent.captionText.spriteAsset = Plugin.SpriteAsset.Atlas;
-		tmp_DropdownChildComponent.captionText.alignment = TextAlignmentOptions.Left;
+		tmpDropdownChildComponent.captionText.richText = true;
+		tmpDropdownChildComponent.captionText.spriteAsset = Plugin.SpriteAsset.Atlas;
+		tmpDropdownChildComponent.captionText.alignment = TextAlignmentOptions.Left;
 
-		tmp_DropdownChildComponent.itemText.richText = true;
-		tmp_DropdownChildComponent.itemText.spriteAsset = Plugin.SpriteAsset.Atlas;
-		tmp_DropdownChildComponent.itemText.alignment = TextAlignmentOptions.Center;
+		tmpDropdownChildComponent.itemText.richText = true;
+		tmpDropdownChildComponent.itemText.spriteAsset = Plugin.SpriteAsset.Atlas;
+		tmpDropdownChildComponent.itemText.alignment = TextAlignmentOptions.Center;
 
 		// Make reactive for ToolTips to render properly
 		_panel.EntriesSelectionGroup.Entries.Add(entry);
@@ -154,6 +154,8 @@ internal class CustomDropdown
 				_options.Add("Top Center");
 				_options.Add("Bottom Center");
 				break;
+			default:
+				throw new ArgumentOutOfRangeException(nameof(type), type, null);
 		}
 	}
 }

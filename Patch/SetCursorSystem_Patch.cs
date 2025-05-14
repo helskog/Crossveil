@@ -20,5 +20,7 @@ internal static class PatchSetCursorSystemOnUpdate
 			CrosshairCache.CacheOriginals(data);
 			_originalsCached = true;
 		}
+
+		CrosshairRuntime.Refresh();
 	}
 }

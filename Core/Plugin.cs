@@ -1,13 +1,10 @@
-﻿using BepInEx;
+﻿using System.Reflection;
+using BepInEx;
 using BepInEx.Logging;
 using BepInEx.Unity.IL2CPP;
-
-using Crossveil.Crosshair.Collections;
-
-using HarmonyLib;
-
-using System.Reflection;
 using Crossveil.Core.Gui;
+using Crossveil.Crosshair.Collections;
+using HarmonyLib;
 
 namespace Crossveil.Core;
 
@@ -29,7 +26,7 @@ public class Plugin : BasePlugin
 		Log = base.Log;
 
 		ShouldCollectCache = false;
-		
+
 		// Initialize configuration file
 		Core.Config.Initialize(Config);
 

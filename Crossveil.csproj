@@ -1,27 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <AssemblyName>Crossveil</AssemblyName>
-    <Description>A V Rising mod to customize your crosshairs</Description>
-	  
-    <Version>0.1.1</Version>
-	  
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <LangVersion>latest</LangVersion>
-    <RootNamespace>Crossveil</RootNamespace>
-    <AssemblyVersion>$(Version)</AssemblyVersion>
-    <FileVersion>$(Version)</FileVersion>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.691" IncludeAssets="compile" />
-    <PackageReference Include="BepInEx.Core" Version="6.0.0-be.691" IncludeAssets="compile" />
-    <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
-    <PackageReference Include="VRising.Unhollowed.Client" Version="1.1.0.9121701" />
-  </ItemGroup>
-	<ItemGroup>
-		<EmbeddedResource Include="Embedded\*.png" />
-	</ItemGroup>
-	<ItemGroup>
-	  <None Include=".github\workflows\build.yml" />
-	</ItemGroup>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <AssemblyName>Crossveil</AssemblyName>
+        <Description>A V Rising mod to customize your crosshairs</Description>
+
+        <Version>0.1.3</Version>
+
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <LangVersion>latest</LangVersion>
+        <RootNamespace>Crossveil</RootNamespace>
+        <AssemblyVersion>$(Version)</AssemblyVersion>
+        <FileVersion>$(Version)</FileVersion>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.691" IncludeAssets="compile"/>
+        <PackageReference Include="BepInEx.Core" Version="6.0.0-be.691" IncludeAssets="compile"/>
+        <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*"/>
+        <PackageReference Include="VRising.Unhollowed.Client" Version="1.1.0.9121701"/>
+    </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="Embedded\*.png"/>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include=".github\workflows\build.yml"/>
+    </ItemGroup>
 </Project>

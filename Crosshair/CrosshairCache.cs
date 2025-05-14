@@ -1,54 +1,54 @@
-﻿using Crossveil.Core;
+﻿using System.Collections.Generic;
+using Crossveil.Core;
 using Crossveil.Utils;
-
 using ProjectM;
 using UnityEngine;
-using System.Collections.Generic;
 
 namespace Crossveil.Crosshair;
 
 public static class CrosshairCache
 {
-	private static readonly Dictionary<(int collectionIndex, int crosshairIndex, float scale), Texture2D> _scaledCrosshairs = new();
-	public static readonly Dictionary<CursorType, CursorData> OriginalCrosshairs = [];
+	private static readonly Dictionary<(int collectionIndex, int crosshairIndex, float scale), Texture2D>
+		ScaledCrosshairs = new();
 
-	public static void ClearScaled() => _scaledCrosshairs.Clear();
+	private static readonly Dictionary<CursorType, CursorData> OriginalCrosshairs = [];
 
-	public static void ClearOriginal() => OriginalCrosshairs.Clear();
+	public static void ClearScaled()
+	{
+		ScaledCrosshairs.Clear();
+	}
+
+	public static void ClearOriginal()
+	{
+		OriginalCrosshairs.Clear();
+	}
 
 	public static Texture2D GetOrAddScaled(int collectionIndex, int crosshairIndex, Texture2D tex, float scale)
 	{
 		var key = (collectionIndex, crosshairIndex, scale);
 
-		if (_scaledCrosshairs.TryGetValue(key, out var cached))
-			return cached;
+		if (ScaledCrosshairs.TryGetValue(key, out var cached))
+		{
+			if (!cached || cached.width == 0)
+				ScaledCrosshairs.Remove(key);
+			else
+				return cached;
+		}
 
 		var scaled = tex.ScaledCopy(scale);
 
-		if (scaled == null)
-		{
-			Plugin.Log.LogError($"[Scaling] Failed to scale crosshair at {collectionIndex}:{crosshairIndex} with factor {scale}");
-			return null;
-		}
+		if (!scaled) return null;
 
-		_scaledCrosshairs[key] = scaled;
+		ScaledCrosshairs[key] = scaled;
 		return scaled;
 	}
-	
-	private static void EnsureScalingInitialized()
-	{
-		CrosshairCache.ClearScaled();
-		Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
-	}
-	
-	/// <summary>
-	/// Cache original CursorData
-	/// </summary>
 
+	/// <summary>
+	///  Cache original CursorData
+	/// </summary>
 	public static void CacheOriginals(CursorData[] dataArray)
 	{
 		foreach (var cd in dataArray)
-		{
 			if (!OriginalCrosshairs.ContainsKey(cd.CursorType))
 			{
 				var copy = new CursorData
@@ -60,20 +60,16 @@ public static class CrosshairCache
 
 				OriginalCrosshairs[cd.CursorType] = copy;
 			}
-		}
+
 		Plugin.Log.LogInfo("Original crosshairs cached.");
 	}
 
 	/// <summary>
-	/// Retrieve cached CursorData for original crosshairs.
+	///  Retrieve cached CursorData for original crosshairs.
 	/// </summary>
-
 	public static CursorData RestoreOriginal(CursorType type)
 	{
-		if (OriginalCrosshairs.TryGetValue(type, out var original))
-		{
-			return original;
-		}
+		if (OriginalCrosshairs.TryGetValue(type, out var original)) return original;
 
 		Plugin.Log.LogWarning($"Cache not found for CursorType: {type}");
 		return null;

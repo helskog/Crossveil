@@ -1,24 +1,30 @@
 ﻿using System;
-
 using ProjectM.UI;
-
 using Stunlock.Core;
 using Stunlock.Localization;
+using UnityEngine;
 
-namespace Crossveil.Core.UI.Components;
+namespace Crossveil.Core.Gui.Components;
 
 internal class CustomToggle
 {
-	private OptionsPanel_Interface _panel;
-	private string _label;
-	private string _tooltip;
 	private bool _defaultValue;
 	private bool _initialValue;
+	private string _label;
 	private Action<bool> _onValueChanged;
+	private OptionsPanel_Interface _panel;
+	private RectTransform _parentOverride;
+	private string _tooltip;
 
 	public CustomToggle Panel(OptionsPanel_Interface panel)
 	{
 		_panel = panel;
+		return this;
+	}
+
+	public CustomToggle Parent(RectTransform parent)
+	{
+		_parentOverride = parent;
 		return this;
 	}
 
@@ -67,14 +73,14 @@ internal class CustomToggle
 			Localization.LocalizedStrings.Add(tooltipGuid, _tooltip);
 
 		var entry = OptionsHelper.AddCheckbox(
-				_panel.ContentNode,
-				_panel.CheckboxPrefab,
-				isGamepad: false,
-				headerKey,
-				tooltipKey,
-				_defaultValue,
-				_initialValue,
-				_onValueChanged
+			_panel.ContentNode,
+			_panel.CheckboxPrefab,
+			false,
+			headerKey,
+			tooltipKey,
+			_defaultValue,
+			_initialValue,
+			_onValueChanged
 		);
 
 		// Make reactive for ToolTips to render properly
